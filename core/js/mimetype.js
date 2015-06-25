@@ -2,7 +2,7 @@ OC.MimeType = {
 
 	mimeTypeIcons: {},
 	
-	mimetypeIcon: function(mimeType) {
+	getIconUrl: function(mimeType) {
 		if (_.isUndefined(mimeType)) {
 			return undefined;
 		}
