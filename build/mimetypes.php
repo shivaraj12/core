@@ -19,7 +19,7 @@ $files = array_values(array_unique($files));
 
 //Generate the JS
 $js = 'OC.MimeTypes={
-	aliases: ' . json_encode($aliases, JSON_PRETTY_PRINT) . ',
+	aliases: ' . json_encode($aliases, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ',
 	files: ' . json_encode($files, JSON_PRETTY_PRINT) . '
 };
 ';
