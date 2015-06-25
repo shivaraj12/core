@@ -407,6 +407,7 @@ class OC {
 		OC_Util::addScript("oc-requesttoken");
 		OC_Util::addScript("apps");
 		OC_Util::addScript('mimetype');
+		OC_Util::addScript('mimetypes');
 		OC_Util::addVendorScript('snapjs/dist/latest/snap');
 
 		// avatars

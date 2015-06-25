@@ -1,25 +1,14 @@
 OC.MimeType = {
 
-	files: [],
-
-	mimeTypeAlias: {},
-
 	mimeTypeIcons: {},
 	
-	init: function() {
-		$.getJSON(OC.webroot + '/core/mimetypes.json', function(data) {
-			OC.MimeType.mimeTypeAlias = data['aliases'];
-			OC.MimeType.files = data['files'];
-		});
-	},
-
 	mimetypeIcon: function(mimeType) {
 		if (_.isUndefined(mimeType)) {
 			return undefined;
 		}
 
-		if (mimeType in OC.MimeType.mimeTypeAlias) {
-			mimeType = OC.MimeType.mimeTypeAlias[mimeType];
+		if (mimeType in OC.MimeTypes.aliases) {
+			mimeType = OC.MimeTypes.aliases[mimeType];
 		}
 		if (mimeType in OC.MimeType.mimeTypeIcons) {
 			return OC.MimeType.mimeTypeIcons[mimeType];
@@ -37,9 +26,9 @@ OC.MimeType = {
 			path += 'folder-shared';
 		} else if (mimeType === 'dir-external') {
 			path += 'folder-external';
-		} else if ($.inArray(icon, OC.MimeType.files)) {
+		} else if ($.inArray(icon, OC.MimeTypes.files)) {
 			path += icon;
-		} else if ($.inArray(icon.split('-')[0], OC.MimeType.files)) {
+		} else if ($.inArray(icon.split('-')[0], OC.MimeTypes.files)) {
 			path += icon.split('-')[0];
 		} else {
 			path += 'file';
@@ -59,5 +48,4 @@ OC.MimeType = {
 
 };
 
-$(document).ready(OC.MimeType.init);
 
