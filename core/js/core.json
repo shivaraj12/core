@@ -28,6 +28,7 @@
 		"oc-requesttoken.js",
 		"setupchecks.js",
 		"../search/js/search.js",
-		"mimetype.js"
+		"mimetype.js",
+		"mimetypes.js"
 	]
 }
