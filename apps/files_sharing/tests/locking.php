@@ -40,11 +40,6 @@ class Locking extends TestCase {
 	public function setUp() {
 		parent::setUp();
 
-		$lockingProvider = \OC::$server->getLockingProvider();
-		if ($lockingProvider instanceof MemcacheLockingProvider) {
-			$lockingProvider->releaseAll();
-		}
-
 		$this->userBackend = new \OC_User_Dummy();
 		\OC::$server->getUserManager()->registerBackend($this->userBackend);
 
@@ -66,6 +61,7 @@ class Locking extends TestCase {
 
 	public function tearDown() {
 		\OC::$server->getUserManager()->removeBackend($this->userBackend);
+		parent::tearDown();
 	}
 
 	/**

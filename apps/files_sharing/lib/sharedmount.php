@@ -50,7 +50,7 @@ class SharedMount extends MountPoint implements MoveableMount {
 		// first update the mount point before creating the parent
 		$this->ownerPropagator = $arguments['propagator'];
 		$this->recipientView = new View('/' . $arguments['user'] . '/files');
-		$newMountPoint = $this->verifyMountPoint($arguments['share'], $arguments['user']);
+		$newMountPoint = $this->verifyMountPoint($arguments['share']);
 		$absMountPoint = '/' . $arguments['user'] . '/files' . $newMountPoint;
 		$arguments['ownerView'] = new View('/' . $arguments['share']['uid_owner'] . '/files');
 		parent::__construct($storage, $absMountPoint, $arguments, $loader);
